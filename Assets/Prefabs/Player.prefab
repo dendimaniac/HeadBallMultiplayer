@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 513619502261170082}
   - component: {fileID: 7511458424879787019}
   - component: {fileID: 6539473192160199869}
+  - component: {fileID: 5613362478516534241}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneGuid: 
   _serializerGuid: 57948656-fb59-4bcd-acd0-ae677c749c1e
-  _prefabId: 1
+  _prefabId: 2
   _updateRate: 1
   _autoFreezeProxyFrames: 0
   _clientPredicted: 1
@@ -131,8 +132,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!58 &6539473192160199869
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,4 +149,21 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.085
+  m_Radius: 0.09
+--- !u!114 &5613362478516534241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658001297331188420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84638bc13741754c9e23d05109d29fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  jumpForce: 500
+  moveSpeed: 4

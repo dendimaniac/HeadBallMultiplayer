@@ -25,12 +25,11 @@ public class ConnectionController : Bolt.GlobalEventListener
 
     public override void BoltStartDone()
     {
-        if (BoltNetwork.IsServer)
-        {
-            string matchName = Guid.NewGuid().ToString();
+        if (!BoltNetwork.IsServer) return;
+        
+        var matchName = Guid.NewGuid().ToString();
 
-            BoltMatchmaking.CreateSession(matchName, null, "Game");
-        }
+        BoltMatchmaking.CreateSession(matchName, null, "Game");
     }
 
     public override void SessionListUpdated(Map<Guid, UdpSession> sessionList)
@@ -39,7 +38,7 @@ public class ConnectionController : Bolt.GlobalEventListener
 
         foreach (var session in sessionList)
         {
-            UdpSession photonSession = session.Value as UdpSession;
+            var photonSession = session.Value;
 
             if (photonSession.Source == UdpSessionSource.Photon)
             {
